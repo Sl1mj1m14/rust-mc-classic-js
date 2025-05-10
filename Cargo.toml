@@ -1,6 +1,6 @@
 [package]
 name = "mc-classic-js"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Functionality for reading and writing MineCraft Classic JS world saves"
 authors = ["Sl1mj1m"]
