@@ -471,8 +471,6 @@ pub fn write_data (file_path: String, json_strings: [String; 2], website: String
     len += 10;
     let vacuum_size = fs::metadata(file_path.clone() + "/" + &dir_name + "/ls/data.sqlite").unwrap().len();
 
-    println!("{:?}",vacuum_size.clone());
-
     conn.execute(
         "CREATE TABLE if not exists database ( 
         origin TEXT NOT NULL, 
