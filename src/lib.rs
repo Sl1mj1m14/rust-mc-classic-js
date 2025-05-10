@@ -19,7 +19,7 @@ use std::time::SystemTime;
 /**
  * Data struct stores the savedGame and settings of the world
  */
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Data {
     pub js_level: JSLevel,
     pub settings: Settings
@@ -42,7 +42,7 @@ impl Data {
  * worldSize: This is the width/length of the world, must be 128, 256, or 512
  * version: Yeah, I have no clue what this is, but it's seemingly always 1 so...
  */
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct JSLevel {
     pub worldSeed: i64,
     pub changedBlocks: HashMap<String,ChangedBlocks>,
@@ -69,7 +69,7 @@ impl JSLevel {
  * a: 0 if block does match natural generation / 1 if block does not match natural generation
  * bt: type of block
  */
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ChangedBlocks {pub a: u8, pub bt: u8}
 impl ChangedBlocks { pub fn new (a: u8, bt: u8) -> Self {ChangedBlocks { a, bt }}}
 
@@ -77,7 +77,7 @@ impl ChangedBlocks { pub fn new (a: u8, bt: u8) -> Self {ChangedBlocks { a, bt }
  * Settings struct stores the json object containing all settings for javascript worlds
  * These settings include typical control and sound settings, but they also contain the username
  */
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Settings {
     pub music: bool,
     pub sound: bool,
