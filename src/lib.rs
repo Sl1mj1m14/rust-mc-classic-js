@@ -406,8 +406,9 @@ pub fn write_data (file_path: String, json_strings: [String; 2], website: String
 
     //Origin
     metadata.extend_from_slice(&(website.len() as u16).to_be_bytes());
-    let chars: Vec<char> = website.chars().collect();
-    for ch in chars {metadata.push(ch as u8)}
+    metadata.extend_from_slice(website.as_bytes());
+    //let chars: Vec<char> = website.chars().collect();
+    //for ch in chars {metadata.push(ch as u8)}
 
     metadata.push(0); //Is App
 
@@ -442,16 +443,14 @@ pub fn write_data (file_path: String, json_strings: [String; 2], website: String
 
     for i in 0..json_strings.len() {
         //Converting the json_string into an array of chars
-        let characters: Vec<char> = json_strings[i].chars().collect();
-        let utf16_length: i32  = characters.len() as i32;
+        //let characters: Vec<char> = json_strings[i].chars().collect();
+        let utf16_length: i32  = json_strings[i].len() as i32;
 
         len += utf16_length;
 
         //Converting chars to u8
         let mut decompressed: Vec<u8> = Vec::new();
-        for ch in characters {
-            decompressed.push(ch as u8);
-        }
+        decompressed.extend_from_slice(json_strings[i].as_bytes());
 
         //Creating the output array
         let max_comp_length = snap::raw::max_compress_len(decompressed.len());

@@ -1,6 +1,6 @@
 [package]
 name = "mc-classic-js"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 description = "Functionality for reading and writing MineCraft Classic JS world saves"
 authors = ["Sl1mj1m"]
@@ -10,8 +10,8 @@ repository = "https://github.com/Sl1mj1m14/rust-mc-classic-js"
 readme = "README.md"
 
 [dependencies]
-serde_json = "1.0.140"
+serde_json = "1.0.143"
 serde = { version = "1.0.219", features = ["derive"] }
-rusqlite = { version = "0.35", features = ["bundled"] }
+rusqlite = { version = "0.37", features = ["bundled"] }
 snap = "1"
-fancy-regex = "0.14.0"
+fancy-regex = "0.16.1"
